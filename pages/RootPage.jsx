@@ -1,7 +1,7 @@
 "use client";
 
 import { ShoeModel } from "@/components/Shoe";
-import { ContactShadows, Environment } from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React from "react";
 
@@ -20,6 +20,7 @@ const RootPage = () => {
                 <Environment preset="city" />
                 <spotLight angle={0.1} intensity={0.5} position={[10, 15, 10]} penumbra={1} castShadow={true}/>
                 <ContactShadows position={[0, -0.8, 0]} opacity={0.25} scale={10} blur={1.5} far={0.8}/>
+                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false}/>
                 <ShoeModel/>
             </Canvas>
         </div>
@@ -59,3 +60,11 @@ castShadow	Active les ombres projetées depuis cette lumière
 position={[0, -0.8, 0]} représente la position du centre du plan invisible qui reçoit les ombres (juste sous l’objet 3D).position={[0, -0.8, 0]} représente la position du centre du plan invisible qui reçoit les ombres (juste sous l’objet 3D).
 far={0.8}	represente la distance max entre l’objet et le plan pour que l’ombre apparaisse
 */
+
+// OrbitControls est un composant de @react-three/drei qui permet de contrôler la caméra en orbite autour d’une cible, offrant des interactions comme la rotation, le zoom et le déplacement (pan).
+/*
+minPolarAngle et maxPolarAngle limitent la rotation verticale de la caméra au point 90°.
+enableZoom={false}: La distance entre la caméra et l’objet reste fixe sur la cible (les deux doigts balayer sur la souris n'auront plus d'effet).
+enablePan={false}: La caméra reste centrée sur la cible.
+*/
+
