@@ -61,6 +61,7 @@ const { nodes, materials } = useGLTF('/assets/3d/models/shoe.glb')
   // anime le modèle (objet) 3D référencé par groupRef dans une boucle temps réel avec useFrame
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
+    
     groupRef.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20
     groupRef.current.rotation.x = Math.cos(t / 4) / 8
     groupRef.current.rotation.y = Math.sin(t / 4) / 8
