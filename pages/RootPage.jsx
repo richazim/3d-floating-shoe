@@ -1,5 +1,6 @@
 "use client";
 
+import MyColorPicker from "@/components/share/MyColorPicker";
 import { ShoeModel } from "@/components/Shoe";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
@@ -20,9 +21,11 @@ const RootPage = () => {
                 <Environment preset="city" />
                 <spotLight angle={0.1} intensity={0.5} position={[10, 15, 10]} penumbra={1} castShadow={true}/>
                 <ContactShadows position={[0, -0.8, 0]} opacity={0.25} scale={10} blur={1.5} far={0.8}/>
-                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false}/>
+                <OrbitControls minPolarAngle={-Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false}/>
                 <ShoeModel/>
             </Canvas>
+
+            <MyColorPicker/>
         </div>
     )
 }
